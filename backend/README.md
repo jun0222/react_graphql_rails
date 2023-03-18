@@ -1,6 +1,7 @@
 # 参考記事
 
 - [Rails + React + GraphQL + ApolloClient で画面表示されるまでのハンズオン！](https://qiita.com/sasaki-sota/items/2f65d9bec3753d48bbc0)
+- [[Rails]rails new した後からアプリ名を変更する方法](https://qiita.com/ryoya-s/items/66e426f1a0dd5d87cd6f)
 
 # API
 
@@ -42,3 +43,15 @@ const GET_USERS = gql`
 
 N+1 は普通に発生するが、JOIN を使うと GraphQL の思想から逸れるので、  
 DataLoader を使うのが一般的。[参考](https://zenn.dev/alea12/articles/15d73282c3aacc)
+
+## SQL クエリのログ
+
+ローカルだと terminal などに普通に出る。
+
+```
+User Load (0.2ms)  SELECT "users".* FROM "users"
+```
+
+# todo
+
+backend と frontend の名前を変える
