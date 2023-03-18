@@ -52,6 +52,46 @@ DataLoader を使うのが一般的。[参考](https://zenn.dev/alea12/articles/
 User Load (0.2ms)  SELECT "users".* FROM "users"
 ```
 
-# todo
+# コマンド
 
-backend と frontend の名前を変える
+## frontend
+
+- `yarn start` でサーバー起動
+
+## backend
+
+- `rails s`でサーバー起動
+- `rails db:seed`で seed データ作成
+
+# エラー
+
+### Uncaught TypeError: Cannot read properties of undefined (reading 'bind')
+
+```javascript
+// frontend/src/App.js
+import React from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import Demo from "./Demo";
+const client = new ApolloClient({
+  uri: "http://localhost:3001/graphql", // backendのエンドポイントを設定する
+  cache: new InMemoryCache(),
+});
+
+const App = () => {
+  return (
+    <ApolloProvider client={client}>
+      <div className="App">
+        <Demo />
+      </div>
+    </ApolloProvider>
+  );
+};
+
+export default App;
+```
+
+として解決。
+
+### ActionController::RoutingError (No route matches [OPTIONS] "/graphql")
+
+backend サーバー再起動で解決
